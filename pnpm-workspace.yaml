@@ -1,3 +1,7 @@
 allowBuilds:
-  esbuild: false
-  sharp: false
+  esbuild: true
+  sharp: true
+  workerd: true
+overrides:
+  # current (and only) version used by wrangler
+  esbuild: "0.27.3"
