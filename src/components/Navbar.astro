@@ -1,46 +1,38 @@
 ---
 import Menu from "./Lucide/Menu.astro";
-import Search from "./Lucide/Search.astro";
 import "../styles/global.css";
 
-const navItems = ["Home", "Video", "Writing"];
+const navItems = ["Video", "Writing", "Contact"];
 ---
 
-<header class="sticky top-0 z-10 bg-sky-950 text-white">
+<header class="sticky top-0 z-10 bg-sky-500 text-white">
   <nav
     class="mx-auto flex h-16 w-full items-center justify-between px-4 md:h-18 md:px-8"
     aria-label="Primary navigation"
   >
-    <div class="flex min-w-0 items-center gap-3">
+    <a class="flex min-w-0 items-center gap-3 text-white no-underline" href="/">
+      <img
+        class="size-11 rounded-full object-cover"
+        src="/jerick.png"
+        alt="Jerick Yacat"
+        aria-label="Jerick Yacat Home"
+      />
+    </a>
+
+    <div>
       <button
-        class="flex size-11 shrink-0 items-center justify-center text-white md:hidden"
+        class="flex size-11 items-center justify-end text-white md:hidden"
         type="button"
         aria-label="Open navigation"
       >
         <Menu />
       </button>
 
-      <a class="flex min-w-0 items-center gap-3 text-white no-underline" href="/">
-        <img
-          class="size-11 shrink-0 rounded-full object-cover"
-          src="/jerick.png"
-          alt="Jerick Yacat"
-        />
-        <span class="truncate font-serif text-2xl font-bold leading-none">
-          Jerick Yacat
-        </span>
-      </a>
-    </div>
-
-    <div class="flex shrink-0 items-center gap-4 md:gap-5">
       <div class="hidden items-center gap-7 md:flex">
         {
           navItems.map((item) => (
             <a
-              class:list={[
-                "text-lg leading-none text-white no-underline",
-                item === "Video" ? "font-bold" : "font-normal",
-              ]}
+              class="text-lg leading-none text-white no-underline font-bold"
               href={`#${item.toLowerCase()}`}
             >
               {item}
@@ -48,14 +40,6 @@ const navItems = ["Home", "Video", "Writing"];
           ))
         }
       </div>
-
-      <button
-        class="flex size-11 shrink-0 items-center justify-center text-white"
-        type="button"
-        aria-label="Search"
-      >
-        <Search />
-      </button>
     </div>
   </nav>
 </header>
