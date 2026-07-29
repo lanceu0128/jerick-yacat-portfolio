@@ -1,0 +1,23 @@
+---
+import Header from "./Header.astro";
+import VideoCard from "./VideoCard.astro";
+import { videoItems } from "../data/portfolio";
+---
+
+<section id="video" class="bg-sky-500 px-5 pt-10" aria-label="Video portfolio">
+  <div class="mx-auto max-w-5xl lg:max-w-5xl">
+    <Header title="Video" />
+
+    <div class="grid gap-14">
+      {
+        videoItems.map((item, index) => (
+          <VideoCard
+            item={item}
+            align={index % 2 === 0 ? "left" : "right"}
+            imageSide={index % 2 === 0 ? "left" : "right"}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

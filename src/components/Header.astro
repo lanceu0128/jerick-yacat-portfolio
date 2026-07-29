@@ -1,0 +1,14 @@
+---
+interface Props {
+  title: string;
+  align?: "left" | "right";
+}
+
+const { title, align = "left" } = Astro.props;
+const alignment = align === "right" ? "items-end text-right" : "items-start text-left";
+---
+
+<div class:list={["py-6 flex flex-col w-full", alignment]}>
+  <h2 class="text-4xl md:text-6xl font-mono text-white font-bold uppercase">{title}</h2>
+  <div class="mt-2 h-2 w-[90%] bg-yellow-100" aria-hidden="true"></div>
+</div>

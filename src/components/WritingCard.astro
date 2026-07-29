@@ -1,0 +1,34 @@
+---
+import type { PortfolioItem } from "../data/portfolio";
+
+interface Props {
+  item: PortfolioItem;
+  align?: "left" | "right";
+}
+
+const { item, align = "left" } = Astro.props;
+const textAlign =
+  align === "right" ? "items-end text-right md:items-start md:text-left" : "items-start text-left";
+---
+
+<article class="font-mono text-white">
+  <a
+    class:list={[
+      "mb-2 block border-4 border-yellow-100 bg-black",
+      "transition-opacity",
+      item.href ? "hover:opacity-85" : "pointer-events-none",
+    ]}
+    href={item.href ?? undefined}
+    aria-label={item.href ? item.title : undefined}
+  >
+    <span class="relative block aspect-video overflow-hidden">
+      <img class="size-full object-cover" src={item.imageSrc} alt={item.imageAlt} />
+    </span>
+  </a>
+
+  <div class:list={["flex flex-col", textAlign]}>
+    <h3 class="text-3xl font-bold uppercase leading-none md:text-4xl">{item.title}</h3>
+    <div class="mt-1 h-1 w-20 bg-yellow-100 md:w-24" aria-hidden="true"></div>
+    <p class="mt-1 text-md font-bold leading-tight md:text-lg">{item.description}</p>
+  </div>
+</article>
