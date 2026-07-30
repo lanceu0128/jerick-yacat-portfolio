@@ -4,6 +4,8 @@ export interface PortfolioItem {
   imageSrc: string;
   imageAlt: string;
   href: string;
+  embedSrc?: string;
+  embedTitle?: string;
   note?: string;
 }
 
@@ -16,6 +18,8 @@ export const videoItems: PortfolioItem[] = [
     imageSrc: "https://img.youtube.com/vi/5-NMg_Ddx4I/hqdefault.jpg",
     imageAlt: "Thumbnail for My Dollar",
     href: "https://www.youtube.com/watch?v=5-NMg_Ddx4I",
+    embedSrc: "https://www.youtube.com/embed/5-NMg_Ddx4I",
+    embedTitle: "My Dollar",
     note: "Submitted for the UConn Fall 2025 UCTV 5x5 Challenge.",
   },
   {
@@ -25,6 +29,8 @@ export const videoItems: PortfolioItem[] = [
     imageSrc: "https://img.youtube.com/vi/xCRZVGsrBuA/hqdefault.jpg",
     imageAlt: "Thumbnail for Zooming into the Nostalgic Lens",
     href: "https://www.youtube.com/watch?v=xCRZVGsrBuA",
+    embedSrc: "https://www.youtube.com/embed/xCRZVGsrBuA",
+    embedTitle: "Zooming into the Nostalgic Lens - How the Body Processes Memories",
     note: "Submitted for PNB 3120W (Public Communication of Physiology and Neurobiology) at UConn.",
   },
   {
@@ -33,14 +39,19 @@ export const videoItems: PortfolioItem[] = [
     imageSrc: placeholderImage,
     imageAlt: "Thumbnail for I Otama-Love You!",
     href: "https://drive.google.com/open?id=15KIFXZW8oyQPZf11SlUEqmBilv-dpH8G",
+    embedSrc: "https://drive.google.com/file/d/15KIFXZW8oyQPZf11SlUEqmBilv-dpH8G/preview",
+    embedTitle: "I Otama Love You | Shortened Edition.mp4",
   },
   {
     title: "Ocean Park 2025",
     description:
-      "A montage video showcasing the sealife footage my family and I filmed at Ocean Park aquarium in the Philippines. This project was shot and edited in collaboration with my cousin, Rhandel Yacat.",
+      "A montage video showcasing the sealife footage my family and I filmed at Ocean Park aquarium in the Philippines.",
     imageSrc: placeholderImage,
     imageAlt: "Thumbnail for Ocean Park 2025",
     href: "https://drive.google.com/open?id=1_1Yr_ymoEZxfv8cjNKxrAnKJ-sw6GScQ",
+    embedSrc: "https://drive.google.com/file/d/1_1Yr_ymoEZxfv8cjNKxrAnKJ-sw6GScQ/preview",
+    embedTitle: "Ocean Park Final Draft.mov",
+    note: "Shot and edited in collaboration with my cousin, Rhandel Yacat.",
   },
 ];
 
@@ -51,6 +62,8 @@ export const writingItems: PortfolioItem[] = [
     imageSrc: placeholderImage,
     imageAlt: "Thumbnail for Marlo and the Purple Eyes",
     href: "https://drive.google.com/open?id=11Ks1ESzbNw9Cz3XpiZMGGYQR3Kq-IPhM",
+    embedSrc: "https://drive.google.com/file/d/11Ks1ESzbNw9Cz3XpiZMGGYQR3Kq-IPhM/preview",
+    embedTitle: "MARLO AND THE PURPLE EYES.pdf",
   },
   {
     title: "My Dollar (2025)",
@@ -58,6 +71,8 @@ export const writingItems: PortfolioItem[] = [
     imageSrc: placeholderImage,
     imageAlt: "Thumbnail for My Dollar screenplay",
     href: "https://drive.google.com/open?id=1quC8ZRhDcHbxZlB6Y1PxachQYn9uvlUl",
+    embedSrc: "https://drive.google.com/file/d/1quC8ZRhDcHbxZlB6Y1PxachQYn9uvlUl/preview",
+    embedTitle: "My Dollar Screenplay.pdf",
   },
   {
     title: "The Autonomic Nervous System's Response to Horror and Relaxing Content (2025)",
@@ -66,22 +81,26 @@ export const writingItems: PortfolioItem[] = [
     imageSrc: placeholderImage,
     imageAlt: "Thumbnail for The Autonomic Nervous System's Response to Horror and Relaxing Content",
     href: "https://drive.google.com/open?id=11Q-qQvnr0GC9go_aJpzJg62unda7Q5kL",
+    embedSrc: "https://drive.google.com/file/d/11Q-qQvnr0GC9go_aJpzJg62unda7Q5kL/preview",
+    embedTitle: "Copy of FINAL DRAFT Jerick Yacat Lab Report PNB 2776.pdf",
     note: "Research conducted with Claire Kenny.",
   },
-  {
-    title: "Working Under Pressure: How the Brain Helps you Focus (2025)",
-    description: "A website article discussing an ironic relationship between the stress response and productivity.",
-    imageSrc: placeholderImage,
-    imageAlt: "Placeholder thumbnail for Working Under Pressure",
-    href: "https://pnbyacatjerickblog.weebly.com/",
-    note: "Created with Weebly. Submitted for PNB 3120W at UConn.",
-  },
+  // {
+  //   title: "Working Under Pressure: How the Brain Helps you Focus (2025)",
+  //   description: "A website article discussing an ironic relationship between the stress response and productivity.",
+  //   imageSrc: placeholderImage,
+  //   imageAlt: "Placeholder thumbnail for Working Under Pressure",
+  //   href: "https://pnbyacatjerickblog.weebly.com/",
+  //   note: "Created with Weebly. Submitted for PNB 3120W at UConn.",
+  // },
   {
     title: "Don't Dive Into Irukandji Syndrome (2025)",
     description: "An infographic listing the potential dangers and treatment options for irukandji jellyfish stings.",
     imageSrc: placeholderImage,
     imageAlt: "Thumbnail for Don't Dive Into Irukandji Syndrome",
     href: "https://drive.google.com/open?id=1q6vYf-aCq1rxIoM3sykgU__yCGU95wEJ",
+    embedSrc: "https://drive.google.com/file/d/1q6vYf-aCq1rxIoM3sykgU__yCGU95wEJ/preview",
+    embedTitle: "Irukandji Syndrome (1).pdf",
     note: "Created with Canva. Submitted for PNB 3120W at UConn.",
   },
   {
@@ -90,6 +109,8 @@ export const writingItems: PortfolioItem[] = [
     imageSrc: placeholderImage,
     imageAlt: "Thumbnail for Stress VS Hydration",
     href: "https://drive.google.com/open?id=14n5RwWNiVABhJrValF_vkMw111l4-qOK",
+    embedSrc: "https://drive.google.com/file/d/14n5RwWNiVABhJrValF_vkMw111l4-qOK/preview",
+    embedTitle: "Stress VS Hydration -- Jerick Yacat.pdf",
     note: "Created with Canva. Submitted for PNB 3120W at UConn.",
   },
 ];

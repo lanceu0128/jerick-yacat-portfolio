@@ -11,28 +11,48 @@ const { item, align = "left", imageSide = "left" } = Astro.props;
 const textAlign = align === "right" ? "text-right items-end" : "text-left items-start";
 const imageOrder = imageSide === "right" ? "md:order-2" : "md:order-1";
 const textOrder = imageSide === "right" ? "md:order-1" : "md:order-2";
+const isDriveEmbed = item.embedSrc?.includes("drive.google.com");
+const mediaAspect = isDriveEmbed ? "aspect-video md:aspect-[4/3]" : "aspect-video";
+const showMobileThumbnail = !item.embedSrc || isDriveEmbed;
 ---
 
 <article class="grid gap-3 md:grid-cols-2 md:items-start md:gap-5">
-  <a
-    class:list={[
-      "block border-4 border-yellow-100 bg-black",
-      "transition-opacity",
-      item.href ? "hover:opacity-85" : "pointer-events-none",
-      imageOrder,
-    ]}
-    href={item.href ?? undefined}
-    aria-label={item.href ? item.title : undefined}
-  >
-    <span class="relative block aspect-video overflow-hidden">
-      <img
-        class="size-full object-cover"
-        src={item.imageSrc}
-        alt={item.imageAlt}
-        onerror="this.onerror=null;this.src='/temp-thumbnail.png';"
-      />
+  <div class:list={["block border-4 border-yellow-100 bg-black", imageOrder]}>
+    <span class:list={["relative block overflow-hidden", mediaAspect]}>
+      {
+        item.embedSrc && (
+          <iframe
+            class:list={["size-full", isDriveEmbed ? "hidden md:block" : "block"]}
+            src={item.embedSrc}
+            title={item.embedTitle ?? item.title}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        )
+      }
+      {
+        showMobileThumbnail && (
+          <a
+            class:list={[
+              "block size-full transition-opacity",
+              item.embedSrc ? "md:hidden" : "",
+              item.href ? "hover:opacity-85" : "pointer-events-none",
+            ]}
+            href={item.href ?? undefined}
+            aria-label={item.href ? item.title : undefined}
+          >
+            <img
+              class="size-full object-cover"
+              src={item.imageSrc}
+              alt={item.imageAlt}
+              onerror="this.onerror=null;this.src='/temp-thumbnail.png';"
+            />
+          </a>
+        )
+      }
     </span>
-  </a>
+  </div>
 
   <div class:list={["flex flex-col gap-1 font-mono text-white", textAlign, textOrder]}>
     <div class:list={["flex flex-col", textAlign]}>
