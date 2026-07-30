@@ -40,6 +40,8 @@ const showMobileThumbnail = !item.embedSrc || isDriveEmbed;
               item.href ? "hover:opacity-85" : "pointer-events-none",
             ]}
             href={item.href ?? undefined}
+            target={item.href ? "_blank" : undefined}
+            rel={item.href ? "noreferrer" : undefined}
             aria-label={item.href ? item.title : undefined}
           >
             <img
