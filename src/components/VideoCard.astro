@@ -25,17 +25,29 @@ const textOrder = imageSide === "right" ? "md:order-1" : "md:order-2";
     aria-label={item.href ? item.title : undefined}
   >
     <span class="relative block aspect-video overflow-hidden">
-      <img class="size-full object-cover" src={item.imageSrc} alt={item.imageAlt} />
+      <img
+        class="size-full object-cover"
+        src={item.imageSrc}
+        alt={item.imageAlt}
+        onerror="this.onerror=null;this.src='/temp-thumbnail.png';"
+      />
     </span>
   </a>
 
   <div class:list={["flex flex-col gap-1 font-mono text-white", textAlign, textOrder]}>
     <div class:list={["flex flex-col", textAlign]}>
-      <h3 class="text-3xl font-bold uppercase leading-none md:text-4xl">{item.title}</h3>
+      <h3 class="text-2xl font-bold uppercase leading-none md:text-3xl">{item.title}</h3>
       <div class="mt-1 h-1 w-24 bg-yellow-100 md:w-28" aria-hidden="true"></div>
     </div>
     <p class="text-md font-bold leading-tight md:text-lg">
       {item.description}
     </p>
+    {
+      item.note && (
+        <p class="mt-2 text-sm font-bold italic leading-tight md:text-base">
+          {item.note}
+        </p>
+      )
+    }
   </div>
 </article>
