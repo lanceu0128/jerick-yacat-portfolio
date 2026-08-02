@@ -1,7 +1,13 @@
 ---
+import { contactEmail } from "../../data/contact";
 ---
 
-<form class="font-mono text-sky-500" aria-label="Contact form">
+<form
+  id="contact-form"
+  class="font-mono text-sky-500"
+  data-contact-email={contactEmail}
+  aria-label="Contact form"
+>
   <div class="grid gap-3">
     <label class="grid text-base font-bold md:text-lg">
       <span class="sr-only">Name</span>
@@ -9,7 +15,8 @@
         class="h-10 border-4 border-sky-500 bg-white px-3 font-mono text-lg text-sky-500 outline-none placeholder:text-sky-500 md:h-12 md:text-xl"
         type="text"
         name="name"
-        placeholder="Name:"
+        placeholder="[Name]"
+        required
       />
     </label>
 
@@ -19,7 +26,8 @@
         class="h-10 border-4 border-sky-500 bg-white px-3 font-mono text-lg text-sky-500 outline-none placeholder:text-sky-500 md:h-12 md:text-xl"
         type="email"
         name="email"
-        placeholder="Email:"
+        placeholder="[Email]"
+        required
       />
     </label>
 
@@ -28,17 +36,40 @@
       <textarea
         class="min-h-40 resize-none border-4 border-sky-500 bg-white px-3 py-2 font-mono text-lg text-sky-500 outline-none placeholder:text-sky-500 md:min-h-52 md:py-3 md:text-xl"
         name="message"
-        placeholder="Message:"
+        placeholder="[Message]"
+        required
       ></textarea>
     </label>
   </div>
 
   <div class="mt-5 flex justify-end">
     <button
-      class="rounded-full bg-sky-500 px-8 py-2.5 font-mono text-lg font-bold text-white md:py-3"
-      type="button"
+      class="cursor-pointer transition-opacity hover:opacity-80 rounded-full bg-sky-500 px-8 py-2.5 font-mono text-lg font-bold text-white md:py-3"
+      type="submit"
     >
       Send
     </button>
   </div>
 </form>
+
+<script>
+  const contactForm = document.getElementById("contact-form");
+
+  if (contactForm instanceof HTMLFormElement) {
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      
+      const formData = new FormData(contactForm);
+      const contactEmail = contactForm.dataset.contactEmail;
+      const name = String(formData.get("name") || "").trim();
+      const email = String(formData.get("email") || "").trim();
+      const message = String(formData.get("message") || "").trim();
+      const subject = "Portfolio Contact";
+      const body = [`Name: ${name}`, `Email: ${email}`, "", "Message:", message].join("\n");
+
+      const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      window.location.href = mailtoUrl;
+    });
+  }
+</script>

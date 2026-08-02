@@ -3,21 +3,21 @@ import ContactForm from "./ContactForm.astro";
 import SocialBadge from "./SocialBadge.astro";
 ---
 
-<section id="contact" class="bg-yellow-100 px-5 py-12 md:px-8 md:py-20" aria-label="Contact">
+<section id="contact" class="grid min-h-screen content-center bg-yellow-100 px-5 py-12 md:px-8 md:py-20" aria-label="Contact">
   <div class="mx-auto max-w-6xl font-mono text-sky-500">
     <h2 class="mx-auto mb-10 max-w-64 text-center text-4xl font-bold uppercase md:max-w-none md:text-5xl">
       Let's Work Together!
     </h2>
   </div>
 
-  <div class="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:items-stretch md:justify-center md:gap-12">
+  <div class="mx-auto flex w-full max-w-6xl flex-col gap-8 md:flex-row md:items-stretch md:justify-center md:gap-12">
     <div class="min-h-48 font-mono text-sky-500 md:w-xl" aria-label="Contact form area">
       <ContactForm />
     </div>
 
     <div class="h-1 w-full bg-sky-500 md:h-auto md:w-1" aria-hidden="true"></div>
 
-    <div class="min-h-48 pr-2 pb-2 font-mono text-sky-500" aria-label="Social contact area">
+    <div class="aspect-square w-full font-mono text-sky-500 md:size-100" aria-label="Social contact area">
       <SocialBadge />
     </div>
   </div>
