@@ -9,7 +9,7 @@ export interface PortfolioItem {
   note?: string;
 }
 
-const placeholderImage = "/temp-thumbnail.png";
+const placeholderImage = "/temp-thumbnail.webp";
 
 export const videoItems: PortfolioItem[] = [
   {
